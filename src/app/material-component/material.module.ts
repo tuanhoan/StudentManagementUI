@@ -34,8 +34,11 @@ import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { HomeComponent } from './home/home.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDividerModule } from '@angular/material/divider';
-import { TeacherComponent } from './teacher-component/teacher-component.component';
-import { TeacherTableComponent } from './teacher-table/teacher-table-component.component';
+import { TeacherListComponent } from './Admin/teacher-management/teacher-list.component';
+import { MatTableModule } from '@angular/material/table';
+import { TeacherDetailsComponent } from './Admin/teacher-details/teacher-details.component';
+import { ProfilesComponent } from './profiles/profiles.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   imports: [
@@ -48,7 +51,8 @@ import { TeacherTableComponent } from './teacher-table/teacher-table-component.c
     FlexLayoutModule,
     CdkTableModule,
     DragDropModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTableModule
   ],
   providers: [],
   entryComponents: [DialogOverviewExampleDialogComponent],
@@ -71,8 +75,11 @@ import { TeacherTableComponent } from './teacher-table/teacher-table-component.c
     SliderComponent,
     SlideToggleComponent,
     HomeComponent,
-    TeacherComponent,
-    TeacherTableComponent
+    TeacherListComponent,
+    TeacherDetailsComponent,
+    ProfilesComponent,
+    UserProfileComponent
   ]
 })
+
 export class MaterialComponentsModule {}

@@ -17,7 +17,10 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
 import { SliderComponent } from './slider/slider.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { HomeComponent } from './home/home.component';
-import { TeacherTableComponent } from './teacher-table/teacher-table-component.component';
+import { TeacherListComponent } from './Admin/teacher-management/teacher-list.component';
+import { TeacherDetailsComponent } from './Admin/teacher-details/teacher-details.component';
+import { AuthGuard } from '../auth.guard';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 export const MaterialRoutes: Routes = [
   {
@@ -86,10 +89,21 @@ export const MaterialRoutes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate:[AuthGuard]
   },
   {
-    path: 'teacherTable',
-    component: TeacherTableComponent
+    path: 'teachers',
+    children:[
+      {path: "",component: TeacherListComponent},
+      {
+        path:":id", component:TeacherDetailsComponent,
+        pathMatch: 'full'
+      },
+    ]
+  },
+  {
+    path:"profile",
+    component:UserProfileComponent
   }
 ];

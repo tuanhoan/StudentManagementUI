@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AppRoutes } from './app.routing';
@@ -17,6 +17,11 @@ import { DemoMaterialModule } from './demo-material-module';
 
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
+import { LoginComponent } from './Login/login/login.component';
+import { AuthGuard } from './auth.guard';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { LoginPageComponent } from './Login/login-page/login-page.component';
+import { RegisterPageComponent } from './Login/register-page/register-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,11 @@ import { SpinnerComponent } from './shared/spinner.component';
     FullComponent,
     AppHeaderComponent,
     SpinnerComponent,
-    AppSidebarComponent
+    AppSidebarComponent,
+    LoginComponent,
+    ErrorPageComponent,
+    LoginPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
@@ -34,13 +43,15 @@ import { SpinnerComponent } from './shared/spinner.component';
     FlexLayoutModule,
     HttpClientModule,
     SharedModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(AppRoutes)
   ],
   providers: [
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy
-    }
+    },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
