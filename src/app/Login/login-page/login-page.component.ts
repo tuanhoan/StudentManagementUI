@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Services/login.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { LoginService } from 'src/app/Services/login.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private httpLogin: LoginService) {
+  constructor(private httpLogin: LoginService,private router: Router) {
   }
 
   formLogin= new FormGroup({
@@ -46,6 +47,8 @@ export class LoginPageComponent implements OnInit {
        localStorage.setItem("role", infor.role);
 
        console.log(localStorage.getItem("role"));
+
+       this.router.navigate(['']);
      }
    });
 

@@ -28,7 +28,7 @@ export const AppRoutes: Routes = [
     ]
   },
   {
-    path:"login", component:LoginComponent
+    path:"login", component:LoginPageComponent
   },
   {
     path:"login1", component:LoginPageComponent
